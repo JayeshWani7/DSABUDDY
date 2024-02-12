@@ -8,13 +8,11 @@ import { MergeSort } from "../sortFunctions/MergeSort";
 import { LinearSearch } from "../searchFunctions/LinearSearch"
 import { BinarySearch } from "../searchFunctions/BinarySearch"
 
-// colors setting
 export const comparisionColor = "pink";
 export const swapColor = "yellow";
 export const sortedColor = "springgreen";
 export const pivotColor = "sandybrown";
 
-// time setting
 export let swapTime = 1000;
 export let compareTime = 500;
 
