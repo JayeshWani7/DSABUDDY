@@ -1,0 +1,45 @@
+/* Navbar container */
+.root {
+    width: 100%;
+  }
+  
+  /* Logo and title container */
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    font-family: 'Nunito', sans-serif;
+    font-size: x-large;
+  }
+  
+  /* Logo image */
+  .logo-img {
+    width: 5%;
+    margin: 10px;
+  }
+  
+  /* Title */
+  .title {
+    font-family: 'Nunito', sans-serif;
+    font-size: x-large;
+  }
+  
+  /* Tabs container */
+  .tabs-container {
+    background-color: transparent;
+    align-items: center;
+  }
+  
+  /* Active tab text color */
+  .nav-link.active {
+    color: #007bff; 
+  }
+  
+  /* Tab hover color */
+  .nav-link:hover {
+    color: #007bff; 
+  }
+  
+ 
+  

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import {NavBar}  from "./components/NavBar";
 
 const Container = styled.div`
   margin: 0 10px;
@@ -12,7 +12,7 @@ const Container = styled.div`
 export default function App() {
   return (
     <Container>
-      
+      <NavBar/>
     </Container>
   );
 }
