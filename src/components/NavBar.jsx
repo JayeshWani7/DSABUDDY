@@ -6,7 +6,7 @@ import Tab from "@mui/material/Tab";
 import { sortingAlgorithms, searchingAlgorithms, dataStructures, others } from "../common/config";
 import { useData } from "../common/store";
 import shallow from "zustand/shallow";
-import logo from "../image/logo.svg"
+import logo from "../image/logo.png"
 
 function a11yProps(index) {
   return {
@@ -59,7 +59,7 @@ export function NavBar() {
           background: "rgba(255, 255, 255, 0)",
           fontFamily: "Nunito",
           fontSize: "x-large",
-          width: '25%',
+          width: '15%',
           margin: "10px"
         }} alt="Logo" />
         <h3>DSABUDDY</h3>
