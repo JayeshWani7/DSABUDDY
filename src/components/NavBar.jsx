@@ -19,7 +19,7 @@ const Root = styled.div`
   display: flex;
   flex-grow: 1;
   width: 100%;
-  background-color: lightblue;
+  background-image: linear-gradient(to right bottom, #051937, #004d7a, #008793, #00bf72, #a8eb12);
 `;
 
 export function NavBar() {
