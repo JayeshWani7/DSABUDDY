@@ -1,0 +1,21 @@
+/* .firstSec{
+    background-image: url('./image/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.firstSec .imgsec{
+    width: 100%;
+}
+
+.imgsec img{
+    object-fit: contain;
+    width: 80%;
+}
+
+.featureSec{
+    flex-direction: column;
+}
+
+.featureSec .featureBody{
+    width: 80%;
+} */

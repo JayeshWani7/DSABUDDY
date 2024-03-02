@@ -1,11 +1,12 @@
 import React from "react";
-import styled from "styled-components";
-import AppBar from "@mui/material/AppBar";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
 import { sortingAlgorithms, searchingAlgorithms, dataStructures, others } from "../common/config";
 import { useData } from "../common/store";
 import shallow from "zustand/shallow";
+import { useSetState } from "react-use";
 import logo from "../image/logo.png"
 
 function a11yProps(index) {
@@ -15,14 +16,17 @@ function a11yProps(index) {
   };
 }
 
-const Root = styled.div`
-  display: flex;
-  flex-grow: 1;
-  width: 100%;
-  background-image: linear-gradient(to right bottom, #051937, #004d7a, #008793, #00bf72, #a8eb12);
-`;
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    width: "100%",
+    backgroundColor: theme.palette.background.paper,
+  },
+}));
 
 export function NavBar() {
+
+  const classes = useStyles();
 
   const [algorithm, setAlgorithm, searchingAlgorithm, setSearchingAlgorithm, dataStructure, setDataStructure, other, setOther, setTabTitle] = useData(
     (state) => [state.algorithm, state.setAlgorithm, state.searchingAlgorithm, state.setSearchingAlgorithm, state.dataStructure, state.setDataStructure, state.other, state.setOther, state.setTabTitle],
@@ -40,8 +44,9 @@ export function NavBar() {
   setTabTitle(tabValue);
 
 
+
   return (
-    <Root>
+    <div className={classes.root}>
       <div
         style={{
           display: "flex",
@@ -59,12 +64,11 @@ export function NavBar() {
           background: "rgba(255, 255, 255, 0)",
           fontFamily: "Nunito",
           fontSize: "x-large",
-          width: '15%',
+          width: '5%',
           margin: "10px"
         }} alt="Logo" />
         <h3>DSABUDDY</h3>
       </div>
-      <div>
       <AppBar position="static" color="transparent">
         <Tabs
           value={value}
@@ -170,9 +174,7 @@ export function NavBar() {
           </Tabs>
         </AppBar>
       </TabPanel>
-      </div>
-    
-    </Root>
+    </div>
   );
 }
 
