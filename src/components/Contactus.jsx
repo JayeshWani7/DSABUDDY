@@ -5,7 +5,6 @@ import { IconButton } from '@material-ui/core';
 import { Phone, Email, LocationCity, ExpandLess } from "@material-ui/icons";
 import { Link as Scroll } from 'react-scroll';
 
-// import Stack from "@material-ui/core/Stack"
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -75,7 +74,7 @@ export default function () {
   return (
     <div className={classes.root} id="ContactUs">
       <div className={classes.TitleSec}>
-        <p>get in touch</p>
+        <p>Get in Touch</p>
         <h1 className={classes.colorText}>CONTACT</h1>
       </div>
       <div className={classes.bodySec}>
@@ -86,25 +85,25 @@ export default function () {
                 <Avatar className={classes.colorBg}>
                   <Phone />
                 </Avatar>
-                <p className={classes.Infotext}>+91 898043722</p>
+                <p className={classes.Infotext}>+91 9307695937</p>
               </Card>
               <Card className={classes.InfoCard}>
                 <Avatar className={classes.colorBg}>
                   <Email />
                 </Avatar>
-                <p className={classes.Infotext}>pspatel021@gmail.com</p>
+                <p className={classes.Infotext}>dsabuddy@gmail.com</p>
               </Card>
               <Card className={classes.InfoCard}>
                 <Avatar className={classes.colorBg}>
                   <Email />
                 </Avatar>
-                <p className={classes.Infotext}>rathod.meetraj.d@gmail.com</p>
+                <p className={classes.Infotext}>Kurla, MumBai</p>
               </Card>
               <Card className={classes.InfoCard}>
                 <Avatar className={classes.colorBg}>
                   <LocationCity />
                 </Avatar>
-                <p className={classes.Infotext}>Charusat University, Changa</p>
+                <p className={classes.Infotext}>Don Bosco Institue Of Technology</p>
               </Card>
             </div>
           </Grid>
