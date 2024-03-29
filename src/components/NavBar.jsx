@@ -84,6 +84,7 @@ export function NavBar() {
           <Tab label="Searching" />
           <Tab label="Data Structure" />
           <Tab label="Others" />
+          <Tab label="PlayGround" />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={1} tabValue={tabValue}>

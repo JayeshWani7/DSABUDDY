@@ -14,7 +14,7 @@ export default function App() {
   return (
     <Container>
       <NavBar />
-      <AlgoDisplay />
+      <AlgoDisplay /> 
     </Container>
   );
 }
