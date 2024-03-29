@@ -5,6 +5,17 @@ import { sortingAlgorithms, searchingAlgorithms, dataStructures, others } from "
 import { useControls, useData } from "../common/store";
 import shallow from "zustand/shallow";
 import Home from "../Home";
+import { SortManager } from "./visualizer/SortManager";
+import { SearchManager } from "./visualizer/SearchManager";
+import { Controller } from "./Controller";
+import { BubbleInfo } from "./info/sorting/BubbleInfo";
+import { SelectionInfo } from "./info/sorting/SelectionInfo";
+import { InsertionInfo } from "./info/sorting/InsertionInfo";
+import { HeapInfo } from "./info/sorting/HeapInfo";
+import { MergeInfo } from "./info/sorting/MergeInfo";
+import { QuickInfo } from "./info/sorting/QuickInfo";
+import { LinearInfo } from "./info/searching/Linearinfo";
+import { BinaryInfo } from "./info/searching/BinaryInfo";
 
 const FlexWrap = styled.div`
   display: flex;
@@ -81,6 +92,85 @@ export function AlgoDisplay() {
   if (tabTitle == 0) {
     return (
       <Home />
+    );
+  }
+  else if (tabTitle == 1) {
+    return (
+      <>
+        <Controller />
+        <div style={flexCenter}>
+          {sortingAlgorithms.map((algoInfo, idx) => (
+            <TabPanel value={algorithm} index={idx} key={algoInfo.name}>
+              <SortManager
+                array={sortingArray}
+                sortFunction={algoInfo.component}
+                sortingAlgorithmName={algoInfo.name}
+              />
+              {algoInfo.name === "BubbleSort" ? (
+                <BubbleInfo />
+              ) : (
+                <></>
+              )}
+
+              {algoInfo.name === "SelectionSort" ? (
+                <SelectionInfo />
+              ) : (
+                <></>
+              )}
+
+              {algoInfo.name === "InsertionSort" ? (
+                <InsertionInfo />
+              ) : (
+                <></>
+              )}
+
+              {algoInfo.name === "HeapSort" ? (
+                <HeapInfo />
+              ) : (
+                <></>
+              )}
+
+              {algoInfo.name === "MergeSort" ? (
+                <MergeInfo />
+              ) : (
+                <></>
+              )}
+
+              {algoInfo.name === "QuickSort" ? (
+                <QuickInfo />
+              ) : (
+                <></>
+              )}
+            </TabPanel>
+          ))}
+        </div>
+      </>
+    );
+  }
+  else if (tabTitle == 2) {
+    return (
+      <div style={flexCenter}>
+        {searchingAlgorithms.map((algoInfo, idx) => (
+          <TabPanel value={searchingAlgorithm} index={idx} key={algoInfo.name}>
+            <Controller />
+            <SearchManager
+              array={sortingArray}
+              sortFunction={algoInfo.component}
+              sortingAlgorithmName={algoInfo.name}
+            />
+            {algoInfo.name === "LinearSearch" ? (
+              <LinearInfo />
+            ) : (
+              <></>
+            )}
+            {algoInfo.name === "BinarySearch" ? (
+              <BinaryInfo />
+            ) : (
+              <></>
+            )}
+          </TabPanel>
+        ))}
+      </div>
     );
   }
 }
