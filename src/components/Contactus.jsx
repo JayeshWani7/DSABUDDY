@@ -5,7 +5,6 @@ import { IconButton } from '@material-ui/core';
 import { Phone, Email, LocationCity, ExpandLess, Home } from "@material-ui/icons";
 import { Link as Scroll } from 'react-scroll';
 
-// import Stack from "@material-ui/core/Stack"
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
