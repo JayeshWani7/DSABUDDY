@@ -82,13 +82,6 @@ export function AlgoDisplay() {
     resetSorting();
   }, [algorithm]);
 
-  if (sortingArray.length === 0)
-    return (
-      <h3 style={flexCenter}>
-        Please enter input array or use generate button
-      </h3>
-    );
-
   if (tabTitle == 0) {
     return (
       <Home />
