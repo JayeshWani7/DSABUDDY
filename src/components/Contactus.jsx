@@ -2,9 +2,10 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Card, Avatar, TextField, Button } from "@material-ui/core";
 import { IconButton } from '@material-ui/core';
-import { Phone, Email, LocationCity, ExpandLess } from "@material-ui/icons";
+import { Phone, Email, LocationCity, ExpandLess, Home } from "@material-ui/icons";
 import { Link as Scroll } from 'react-scroll';
 
+// import Stack from "@material-ui/core/Stack"
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -17,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
   TitleSec: {
     fontFamily: "Nunito",
-    fontSize: "3vw",
+    fontSize: "2vw",
     textAlign: "center",
   },
   colorText: {
@@ -33,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   h1: {
     fontfamily: "Nunito",
     fontsize: "6rem",
-    margintop: "0.5rem",
+    margintop: "0.1rem",
     texttransform: "uppercase",
   },
   bodySec: {
@@ -95,15 +96,15 @@ export default function () {
               </Card>
               <Card className={classes.InfoCard}>
                 <Avatar className={classes.colorBg}>
-                  <Email />
+                  <Home />
                 </Avatar>
-                <p className={classes.Infotext}>Kurla, MumBai</p>
+                <p className={classes.Infotext}>Kurla, Mumbai</p>
               </Card>
               <Card className={classes.InfoCard}>
                 <Avatar className={classes.colorBg}>
                   <LocationCity />
                 </Avatar>
-                <p className={classes.Infotext}>Don Bosco Institue Of Technology</p>
+                <p className={classes.Infotext}>Don Bosco Institute of Technology</p>
               </Card>
             </div>
           </Grid>

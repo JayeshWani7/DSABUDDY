@@ -3,10 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import { IconButton, Collapse } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link as Scroll } from 'react-scroll';
+import Carousel from 'react-material-ui-carousel';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    display: 'contain',
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
@@ -26,13 +27,37 @@ const useStyles = makeStyles((theme) => ({
     color: '#3f51b5',
     fontSize: '4rem',
   },
+  image: {
+    width: '100%',
+    maxHeight: '79vh', // Adjust as needed
+    objectFit: 'cover',
+    borderRadius: '8px', // Optional: Add border radius for image
+  },
 }));
+
+const placeholderImages = [
+  'https://via.placeholder.com/500x300',
+  'https://via.placeholder.com/500x300',
+  'https://via.placeholder.com/500x300',
+];
+
 export default function Header() {
   const classes = useStyles();
   const [checked, setChecked] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+
   useEffect(() => {
     setChecked(true);
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % placeholderImages.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className={classes.root} id="header">
       <Collapse
@@ -41,10 +66,23 @@ export default function Header() {
         collapsedSize={50}
       >
         <div className={classes.container}>
-          <h1 className={classes.title}>
-            Learn <br />
-            with <span className={classes.colorText}>Visualization.</span>
-          </h1>
+          <Carousel
+            index={activeIndex}
+            autoPlay={false} // Disable auto play to manually control the interval
+            animation="fade"
+            timeout={500}
+            navButtonsAlwaysVisible={false}
+            indicators={false}
+          >
+            {placeholderImages.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={`Slide ${index + 1}`}
+                className={classes.image}
+              />
+            ))}
+          </Carousel>
           <Scroll to="Features" smooth={true}>
             <IconButton>
               <ExpandMoreIcon className={classes.goDown} />
