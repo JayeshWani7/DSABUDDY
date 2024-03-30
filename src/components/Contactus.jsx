@@ -1,9 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Card, Avatar, TextField, Button } from "@material-ui/core";
-import { IconButton } from '@material-ui/core';
 import { Phone, Email, LocationCity, ExpandLess, Home } from "@material-ui/icons";
-import { Link as Scroll } from 'react-scroll';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,9 +37,6 @@ const useStyles = makeStyles((theme) => ({
   bodySec: {
     width: "80%",
   },
-  //   contentSec: {
-  //     height: "100%",
-  //   },
   InfoCard: {
     marginTop: "1rem",
     padding: "1rem",
