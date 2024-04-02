@@ -202,7 +202,7 @@ export function AlgoDisplay() {
           value={output}
           readOnly
           rows={10}
-          cols={50}
+          cols={120}
           style={{ margin: "10px", padding: "5px" }}
         />
       </div>
