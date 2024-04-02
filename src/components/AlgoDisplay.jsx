@@ -17,6 +17,28 @@ import { MergeInfo } from "./info/sorting/MergeInfo";
 import { QuickInfo } from "./info/sorting/QuickInfo";
 import { LinearInfo } from "./info/searching/Linearinfo";
 import { BinaryInfo } from "./info/searching/BinaryInfo";
+import endent from "endent"; // Import endent library
+
+const createPrompt = (inputLanguage, inputCode) => {
+  return endent`
+  You are an expert programmer in all programming languages. Translate the natural language to "${inputLanguage}" code. Do not include \\\\.
+
+      Example translating from natural language to JavaScript:
+
+      Natural language:
+      Print the numbers 0 to 9.
+
+  JavaScript code:
+      for (let i = 0; i < 10; i++) {
+          console.log(i);
+      }
+
+  Natural language:
+      ${inputCode}
+
+      ${inputLanguage} code (no \\\\):
+  `;
+};
 
 const FlexWrap = styled.div`
   display: flex;
@@ -68,12 +90,37 @@ export function AlgoDisplay() {
     setSelectedLanguage(event.target.value);
   };
 
-  const handleSubmit = () => {
-    // Perform logic to generate output based on question and selected language
-    setOutput(`Output for ${selectedLanguage}:\nGenerated code based on question: ${question}`);
+  const handleSubmit = async () => {
+    try {
+      const API_ENDPOINT = "https://api.worqhat.com/api/ai/content/v2";
+      const BEARER_TOKEN = "Bearer sk-a18a082e48ce4e8bb0679743ea64269d";
+
+      const prompt = createPrompt(selectedLanguage, question);
+
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: BEARER_TOKEN,
+        },
+        body: JSON.stringify({
+          question: prompt,
+          randomness: 0.4,
+        }),
+      };
+
+      const response = await fetch(API_ENDPOINT, requestOptions);
+      const data = await response.json();
+      
+      // Update output based on API response
+      setOutput(data?.content || "Code generation failed");
+    } catch (error) {
+      console.error("Error generating code:", error);
+      setOutput("Code generation failed");
+    }
   };
 
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
