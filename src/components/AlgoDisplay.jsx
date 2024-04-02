@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { sortingAlgorithms } from "../common/config";
+import { searchingAlgorithms } from "../common/config";
 import styled from "styled-components";
 import Card from "@material-ui/core/Card";
-import { sortingAlgorithms, searchingAlgorithms, dataStructures, others } from "../common/config";
 import { useControls, useData } from "../common/store";
 import shallow from "zustand/shallow";
 import Home from "../Home";
@@ -40,7 +41,6 @@ const Container = styled(Card)`
 
 const flexCenter = { display: "flex", justifyContent: "center" };
 
-var tab = 0;
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -60,12 +60,25 @@ function TabPanel(props) {
 
 export function AlgoDisplay() {
   const resetSorting = useControls((state) => state.resetSorting);
+  const [selectedLanguage, setSelectedLanguage] = useState("");
+  const [question, setQuestion] = useState("");
+  const [output, setOutput] = useState("");
+
+  const handleLanguageChange = (event) => {
+    setSelectedLanguage(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    // Perform logic to generate output based on question and selected language
+    setOutput(`Output for ${selectedLanguage}:\nGenerated code based on question: ${question}`);
+  };
 
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
   const [sortingArray, algorithm, searchingAlgorithm, dataStructure, other, tabTitle] = useData(
     (state) => [
       state.sortingArray,
@@ -82,12 +95,9 @@ export function AlgoDisplay() {
     resetSorting();
   }, [algorithm]);
 
-  if (tabTitle == 0) {
-    return (
-      <Home />
-    );
-  }
-  else if (tabTitle == 1) {
+  if (tabTitle === 0) {
+    return <Home />;
+  } else if (tabTitle === 1) {
     return (
       <>
         <Controller />
@@ -139,8 +149,7 @@ export function AlgoDisplay() {
         </div>
       </>
     );
-  }
-  else if (tabTitle == 2) {
+  } else if (tabTitle === 2) {
     return (
       <div style={flexCenter}>
         {searchingAlgorithms.map((algoInfo, idx) => (
@@ -165,5 +174,41 @@ export function AlgoDisplay() {
         ))}
       </div>
     );
+  } else if (tabTitle === 5) {
+    return (
+      <div style={{ textAlign: "center"}}>
+        <h2>Text to Code Generator</h2><br />
+        <input
+          type="text"
+          placeholder="Enter your question here"
+          value={question}
+          onChange={(e) => setQuestion(e.target.value)}
+          style={{ margin: "10px", padding: "5px" }}
+        /><br />
+        <select
+          value={selectedLanguage}
+          onChange={handleLanguageChange}
+          style={{ margin: "10px", padding: "5px" }}
+        >
+          <option value="">Select language</option>
+          <option value="javascript">JavaScript</option>
+          <option value="python">Python</option>
+          <option value="java">Java</option>
+        </select><br />
+        <button onClick={handleSubmit} style={{ margin: "10px", padding: "5px" }}>
+          Submit
+        </button><br /><br />
+        <textarea
+          value={output}
+          readOnly
+          rows={10}
+          cols={50}
+          style={{ margin: "10px", padding: "5px" }}
+        />
+      </div>
+    );
   }
+
+  // Default case if tabTitle is not 0, 1, 2, or 5
+  return null;
 }

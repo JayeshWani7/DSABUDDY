@@ -175,6 +175,10 @@ export function NavBar() {
           </Tabs>
         </AppBar>
       </TabPanel>
+      <TabPanel value={value} index={5} tabValue={tabValue}>
+        <AppBar position="static" color="default">
+        </AppBar>
+      </TabPanel>
     </div>
   );
 }
