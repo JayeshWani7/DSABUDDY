@@ -230,8 +230,9 @@ export function AlgoDisplay() {
           placeholder="Enter your question here"
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
-          style={{ margin: "10px", padding: "10px 500px 10px 0px" }}
+          style={{ margin: "0px", padding: "10px", width: "500px" }}
         /><br />
+
         <select
           value={selectedLanguage}
           onChange={handleLanguageChange}
