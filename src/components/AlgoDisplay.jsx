@@ -224,7 +224,7 @@ export function AlgoDisplay() {
   } else if (tabTitle === 5) {
     return (
       <div style={{ textAlign: "center"}}>
-        <h2>Text to Code Generator</h2><br />
+        <h2>AI based Code Generator</h2><br />
         <input
           type="text"
           placeholder="Enter your question here"
