@@ -239,17 +239,20 @@ export function AlgoDisplay() {
           style={{ margin: "10px", padding: "5px" }}
         >
           <option value="">Select language</option>
-          <option value="javascript">JavaScript</option>
-          <option value="python">Python</option>
+          <option value="C">C</option>
+          <option value="C++">C++</option>
           <option value="java">Java</option>
+          <option value="python">Python</option>
+          <option value="javascript">JavaScript</option>
+          
         </select><br />
-        <button onClick={handleSubmit} style={{ margin: "10px", padding: "5px" }}>
+        <button onClick={handleSubmit} style={{color: "#fff", backgroundColor: "#3f51b5", width: "60px", margin: "10px", padding: "5px" }}>
           Submit
         </button><br /><br />
         <textarea
           value={output}
           readOnly
-          rows={10}
+          rows={15}
           cols={120}
           style={{
             margin: "10px",
