@@ -17,7 +17,7 @@ import { MergeInfo } from "./info/sorting/MergeInfo";
 import { QuickInfo } from "./info/sorting/QuickInfo";
 import { LinearInfo } from "./info/searching/Linearinfo";
 import { BinaryInfo } from "./info/searching/BinaryInfo";
-import endent from "endent"; // Import endent library
+import endent from "endent"; 
 
 const createPrompt = (inputLanguage, inputCode) => {
   return endent`
