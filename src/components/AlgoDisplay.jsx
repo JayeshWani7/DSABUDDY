@@ -255,22 +255,16 @@ export function AlgoDisplay() {
           rows={15}
           cols={120}
           style={{
-            margin: "10px",
-            padding: "10px",
             width: "1100px",
             fontFamily: "monospace",
             fontSize: "14px",
-            border: "none",
-            borderRadius: "5px",
             background: "#1e1e1e",
-            color: "#d4d4d4",
-            boxShadow: "inset 0 1px 3px rgba(0,0,0,0.5)",
+            color: "#d4d4d4"
             }}
         />
       </div>
     );
   }
 
-  // Default case if tabTitle is not 0, 1, 2, or 5
   return null;
 }
