@@ -29,9 +29,9 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     width: '100%',
-    maxHeight: '79vh', // Adjust as needed
+    maxHeight: '79vh',
     objectFit: 'cover',
-    borderRadius: '8px', // Optional: Add border radius for image
+    borderRadius: '8px',
   },
 }));
 
@@ -68,7 +68,7 @@ export default function Header() {
         <div className={classes.container}>
           <Carousel
             index={activeIndex}
-            autoPlay={false} // Disable auto play to manually control the interval
+            autoPlay={false} 
             animation="fade"
             timeout={500}
             navButtonsAlwaysVisible={false}
