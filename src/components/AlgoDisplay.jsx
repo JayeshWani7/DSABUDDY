@@ -93,7 +93,7 @@ export function AlgoDisplay() {
   const handleSubmit = async () => {
     try {
       const API_ENDPOINT = "https://api.worqhat.com/api/ai/content/v2";
-      const BEARER_TOKEN = "Bearer sk-a18a082e48ce4e8bb0679743ea64269d";
+      const BEARER_TOKEN = "Bearer API_KEY_TOKEN";
 
       const prompt = createPrompt(selectedLanguage, question);
 
