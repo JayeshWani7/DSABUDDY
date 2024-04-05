@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Component, useState } from "react";
 import styled from "styled-components";
 
 import { VscDebugStart } from "react-icons/vsc";
@@ -91,11 +91,18 @@ export function Controller() {
   }
 
   function generate() {
-    const randomArray = getRandomArray();
-    setArrayInput(randomArray);
-    setSortingArray(randomArray);
+    const randomArray = getRandomArray(); 
+    
+    if (tabTitle === 2) {
+        const sortedArray = [...randomArray].sort((a, b) => a - b);
+        setArrayInput(sortedArray);
+        setSortingArray(sortedArray);
+    } else {
+      setArrayInput(randomArray);
+      setSortingArray(randomArray);
+    }
     resetSorting();
-  }
+}
 
   function getProgressButton() {
     if (isPausing)
