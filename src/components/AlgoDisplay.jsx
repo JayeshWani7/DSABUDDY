@@ -112,7 +112,6 @@ export function AlgoDisplay() {
       const response = await fetch(API_ENDPOINT, requestOptions);
       const data = await response.json();
       
-      // Update output based on API response
       setOutput(data?.content || "Code generation failed");
     } catch (error) {
       console.error("Error generating code:", error);
