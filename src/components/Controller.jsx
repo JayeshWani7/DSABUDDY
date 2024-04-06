@@ -103,7 +103,6 @@ export function Controller() {
     }
     resetSorting();
 }
-// random
 
   function getProgressButton() {
     if (isPausing)
