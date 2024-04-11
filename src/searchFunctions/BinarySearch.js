@@ -54,12 +54,6 @@ export async function* BinarySearch(array, element, highlight, marksort) {
         alert("Enter sorted array")
         yield
     }
-
-
-
-
-
-
     yield;
 
 }
