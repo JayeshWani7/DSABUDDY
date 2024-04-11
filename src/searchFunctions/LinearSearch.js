@@ -1,4 +1,8 @@
 export async function* LinearSearch(array, element, highlight, marksort) {
+  if (!element()) {
+    alert("Searching Element not provided.");
+    return;
+}
   var ele= element();
   var msg = "Found element at index : "
   var found = false
