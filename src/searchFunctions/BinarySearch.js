@@ -1,4 +1,8 @@
 export async function* BinarySearch(array, element, highlight, marksort) {
+    if (!array || array.length === 0) {
+        alert("Array not provided or empty");
+        return;
+    }
     if (!element()) {
         alert("Searching Element not provided.");
         return;
