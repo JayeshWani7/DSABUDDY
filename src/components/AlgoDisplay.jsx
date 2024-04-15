@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { sortingAlgorithms } from "../common/config";
+import { dataStructures, others, sortingAlgorithms } from "../common/config";
 import { searchingAlgorithms } from "../common/config";
 import styled from "styled-components";
 import Card from "@material-ui/core/Card";
@@ -17,6 +17,16 @@ import { MergeInfo } from "./info/sorting/MergeInfo";
 import { QuickInfo } from "./info/sorting/QuickInfo";
 import { LinearInfo } from "./info/searching/Linearinfo";
 import { BinaryInfo } from "./info/searching/BinaryInfo";
+import { ArrayInfo } from "./info/Datastructures/Arrayinfo";
+import { StackInfo } from "./info/Datastructures/stackinfo";
+import { QueueInfo } from "./info/Datastructures/Queueinfo";
+import { LinkedlistInfo } from "./info/Datastructures/Linkedlistinfo";
+import { TreeInfo } from "./info/Datastructures/Treeinfo";
+import { BfsInfo } from "./info/other/BfsInfo";
+import { DfsInfo } from "./info/other/DfsInfo";
+import { KruskalInfo } from "./info/other/KruskalInfo";
+import { PrimmsInfo } from "./info/other/PrimmsInfo";
+import { DijkstraInfo } from "./info/other/DijkstraInfo";
 import endent from "endent"; 
 
 const createPrompt = (inputLanguage, inputCode) => {
@@ -219,6 +229,86 @@ export function AlgoDisplay() {
           </TabPanel>
         ))}
       </div>
+    );
+  } else if (tabTitle === 3) {
+    return (
+      <>
+        <div style={flexCenter}>
+          {dataStructures.map((algoInfo, idx) => (
+            <TabPanel value={dataStructure} index={idx} key={algoInfo.name}>
+              {algoInfo.name === "Array" ? (
+                <>
+                  <Controller />
+                  <SortManager
+                    array={sortingArray}
+                    sortFunction={algoInfo.component}
+                    sortingAlgorithmName={algoInfo.name}
+                  />
+                  <ArrayInfo />
+                </>
+              ) : (
+                <></>
+              )}
+              {algoInfo.name === "Linked List" ? (
+                <LinkedlistInfo />
+              ) : (
+                <></>
+              )}
+              {algoInfo.name === "Stack" ? (
+                <StackInfo />
+              ) : (
+                <></>
+              )}
+              {algoInfo.name === "Queue" ? (
+                <QueueInfo />
+              ) : (
+                <></>
+              )}
+              {algoInfo.name === "Tree" ? (
+                <TreeInfo />
+              ) : (
+                <></>
+              )}
+            </TabPanel>
+          ))}
+        </div>
+      </>
+    );
+  } else if (tabTitle === 4) {
+    return (
+      <>
+        <div style={flexCenter}>
+          {others.map((algoInfo, idx) => (
+            <TabPanel value={other} index={idx} key={algoInfo.name}>
+              {algoInfo.name === "BFS" ? (
+                <BfsInfo />
+              ) : (
+                <></>
+              )}
+              {algoInfo.name === "DFS" ? (
+                <DfsInfo />
+              ) : (
+                <></>
+              )}
+              {algoInfo.name === "Dijkstra" ? (
+                <DijkstraInfo />
+              ) : (
+                <></>
+              )}
+              {algoInfo.name === "Kruskal" ? (
+                <KruskalInfo />
+              ) : (
+                <></>
+              )}
+              {algoInfo.name === "Primms" ? (
+                <PrimmsInfo />
+              ) : (
+                <></>
+              )}
+            </TabPanel>
+          ))}
+        </div>
+      </>
     );
   } else if (tabTitle === 5) {
     return (

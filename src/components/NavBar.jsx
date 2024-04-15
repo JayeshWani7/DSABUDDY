@@ -83,7 +83,7 @@ export function NavBar() {
           <Tab label="Sorting" />
           <Tab label="Searching" />
           <Tab label="Data Structure" />
-          <Tab label="Others" />
+          <Tab label="Algorithms" />
           <Tab label="PlayGround" />
         </Tabs>
       </AppBar>
