@@ -82,7 +82,7 @@ const Footer = () => {
     <footer className={classes.footer}>
       <p>All rights reserved © DSABUDDY 2024 | Designed by 
       <a href="https://www.linkedin.com/in/jayesh-wani/" target="_blank" className={classes.footerLink}> Jayesh Wani</a>, 
-      <a href="https://www.linkedin.com/in/sanjay-yadav/" target="_blank" className={classes.footerLink}> Sanjay Yadav</a>, 
+      <a href="https://www.linkedin.com/in/sanjay-yadav-2813852ab" target="_blank" className={classes.footerLink}> Sanjay Yadav</a>, 
       <a href="https://www.linkedin.com/in/nibin-baby/" target="_blank" className={classes.footerLink}> Nibin Baby</a>
       </p>
     </footer>
