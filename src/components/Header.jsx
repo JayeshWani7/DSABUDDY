@@ -4,6 +4,8 @@ import { IconButton, Collapse } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link as Scroll } from 'react-scroll';
 import Carousel from 'react-material-ui-carousel';
+import home1 from '../image/home1.png';
+import home2 from '../image/home2.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     textAlign: 'center',
-    fontSize: '3vw'
+    fontSize: '3vw',
   },
   title: {
     fontSize: '4.5rem',
@@ -35,10 +37,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const placeholderImages = [
-  'https://via.placeholder.com/500x300',
-  'https://via.placeholder.com/500x300',
-  'https://via.placeholder.com/500x300',
+const images = [
+  home1,
+  home2,
 ];
 
 export default function Header() {
@@ -52,7 +53,7 @@ export default function Header() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % placeholderImages.length);
+      setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 3000);
 
     return () => clearInterval(interval);
@@ -68,13 +69,13 @@ export default function Header() {
         <div className={classes.container}>
           <Carousel
             index={activeIndex}
-            autoPlay={false} 
+            autoPlay={false}
             animation="fade"
             timeout={500}
             navButtonsAlwaysVisible={false}
             indicators={false}
           >
-            {placeholderImages.map((image, index) => (
+            {images.map((image, index) => (
               <img
                 key={index}
                 src={image}
