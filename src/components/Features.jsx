@@ -12,7 +12,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link as Scroll } from 'react-scroll';
 
 import BGImage from '../image/background.jpeg';
-import sortingimg from "../image/sortingimg.png";
+import sortingimg from "../image/sortingimg.webp";
+import Searching from "../image/Searching.png";
+import DataStructure from "../image/DataStructure.png";
+import Algorithms from "../image/Algorithms.png";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: "100vh",
@@ -66,7 +70,7 @@ export default function () {
             <CardActionArea>
               <CardMedia
                 component="img"
-                height="140"
+                height="170"
                 image={sortingimg}
                 alt="green iguana"
               />
@@ -93,8 +97,8 @@ export default function () {
             <CardActionArea>
               <CardMedia
                 component="img"
-                height="140"
-                image={sortingimg}
+                height="170"
+                image={Searching}
                 alt="green iguana"
               />
               <CardContent>
@@ -116,8 +120,8 @@ export default function () {
             <CardActionArea>
               <CardMedia
                 component="img"
-                height="140"
-                image={sortingimg}
+                height="170"
+                image={DataStructure}
                 alt="green iguana"
               />
               <CardContent>
@@ -142,8 +146,8 @@ export default function () {
             <CardActionArea>
               <CardMedia
                 component="img"
-                height="140"
-                image={sortingimg}
+                height="170"
+                image={Algorithms}
                 alt="green iguana"
               />
               <CardContent>
