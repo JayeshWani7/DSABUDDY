@@ -28,6 +28,9 @@ import { KruskalInfo } from "./info/other/KruskalInfo";
 import { PrimmsInfo } from "./info/other/PrimmsInfo";
 import { DijkstraInfo } from "./info/other/DijkstraInfo";
 import endent from "endent"; 
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const createPrompt = (inputLanguage, inputCode) => {
   return endent`
@@ -103,7 +106,7 @@ export function AlgoDisplay() {
   const handleSubmit = async () => {
     try {
       const API_ENDPOINT = "https://api.worqhat.com/api/ai/content/v2";
-      const BEARER_TOKEN = "Bearer sk-a18a082e48ce4e8bb0679743ea64269d";
+      const BEARER_TOKEN = "Bearer ${process.env.BEARER_TOKEN}";
 
       const prompt = createPrompt(selectedLanguage, question);
 
