@@ -28,9 +28,8 @@ import { KruskalInfo } from "./info/other/KruskalInfo";
 import { PrimmsInfo } from "./info/other/PrimmsInfo";
 import { DijkstraInfo } from "./info/other/DijkstraInfo";
 import endent from "endent"; 
-import dotenv from "dotenv";
 
-dotenv.config();
+
 
 const createPrompt = (inputLanguage, inputCode) => {
   return endent`
