@@ -104,8 +104,13 @@ export function AlgoDisplay() {
 
   const handleSubmit = async () => {
     try {
-      const API_ENDPOINT = "https://api.worqhat.com/api/ai/content/v2";
-      const BEARER_TOKEN = 'Bearer sk-62ac0df735994c50ba6174c40d59e4e6';
+      const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+      const API_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+
+      if (!API_KEY) {
+        setOutput("Error: API key not configured. Please add VITE_GEMINI_API_KEY to your .env file.");
+        return;
+      }
 
       const prompt = createPrompt(selectedLanguage, question);
 
@@ -113,18 +118,30 @@ export function AlgoDisplay() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: BEARER_TOKEN,
         },
         body: JSON.stringify({
-          question: prompt,
-          randomness: 0.4,
+          contents: [{
+            parts: [{
+              text: prompt
+            }]
+          }],
+          generationConfig: {
+            temperature: 0.4,
+            topK: 40,
+            topP: 0.95,
+            maxOutputTokens: 1024,
+          }
         }),
       };
 
       const response = await fetch(API_ENDPOINT, requestOptions);
       const data = await response.json();
       
-      setOutput(data?.content || "Code generation failed");
+      if (data.error) {
+        setOutput(`Error: ${data.error.message}`);
+      } else {
+        setOutput(data?.candidates?.[0]?.content?.parts?.[0]?.text || "Code generation failed");
+      }
     } catch (error) {
       console.error("Error generating code:", error);
       setOutput("Code generation failed");
